@@ -85,3 +85,11 @@ git push --force-with-lease origin add-aiplugintool
 ```
 
 The `--force-with-lease` option ensures that you only force-push if your local branch is up-to-date with the remote branch, preventing accidental overwrites of other people's changes.
+
+## Installing langchain-community Package
+
+To install the `langchain-community` package, use the following command:
+
+```
+%pip install -qU langchain-community
+```
