@@ -81,3 +81,19 @@ For example, if you want to fetch pull request number 42 and create a new branch
 ```
 git fetch origin pull/42/head:feature-branch
 ```
+
+## Switching to the New Branch
+
+After fetching the pull request and creating a new branch, you can switch to the new branch using the following command:
+
+```
+git switch BRANCH_NAME
+```
+
+Replace `BRANCH_NAME` with the name of the branch you created in the previous step.
+
+For example, if you created a branch named `feature-branch`, use the following command to switch to it:
+
+```
+git switch feature-branch
+```
