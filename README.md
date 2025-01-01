@@ -75,3 +75,13 @@ The command `git rebase HEAD~3 --signoff` is used to rebase the last three commi
 * The `--signoff` option adds a "Signed-off-by" line at the end of the commit message.
 
 This command is useful when you need to rebase your commits and ensure that each commit has a sign-off message, which is often required for contributing to open source projects.
+
+## Pushing Changes with Force-With-Lease
+
+After rebasing your commits with a sign-off message, you need to push the changes to the remote repository. Use the following command to push the changes:
+
+```
+git push --force-with-lease origin add-aiplugintool
+```
+
+The `--force-with-lease` option ensures that you only force-push if your local branch is up-to-date with the remote branch, preventing accidental overwrites of other people's changes.
