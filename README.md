@@ -93,3 +93,25 @@ To install the `langchain-community` package, use the following command:
 ```
 %pip install -qU langchain-community
 ```
+
+## Reloading and Autoreloading Extensions
+
+To reload and autoreload extensions, use the following commands:
+
+```
+%reload_ext autoreload
+%autoreload 2
+```
+
+## Importing Necessary Modules
+
+To import the necessary modules, use the following code:
+
+```
+from datetime import datetime
+
+from langchain.agents import AgentType, initialize_agent
+from langchain_community.agent_toolkits.clickup.toolkit import ClickupToolkit
+from langchain_community.utilities.clickup import ClickupAPIWrapper
+from langchain_openai import OpenAI
+```
