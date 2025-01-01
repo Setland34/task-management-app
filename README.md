@@ -115,3 +115,23 @@ from langchain_community.agent_toolkits.clickup.toolkit import ClickupToolkit
 from langchain_community.utilities.clickup import ClickupAPIWrapper
 from langchain_openai import OpenAI
 ```
+
+## Setting Up OAuth Client Credentials for Clickup API
+
+To set up OAuth client credentials and redirect URI for Clickup API, use the following code:
+
+```
+# Copilot Sandbox
+oauth_client_id = "ABC..."
+oauth_client_secret = "123..."
+redirect_uri = "https://google.com"
+```
+
+## Printing Access Code URL for Clickup API
+
+To print the access code URL for Clickup API, use the following code:
+
+```
+print("Click this link, select your workspace, click `Connect Workspace`")
+print(ClickupAPIWrapper.get_access_code_url(oauth_client_id, redirect_uri))
+```
