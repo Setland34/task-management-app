@@ -146,3 +146,13 @@ To set the `code` variable with the value `"THISISMYCODERIGHTHERE"`, use the fol
 ```
 code = "THISISMYCODERIGHTHERE"
 ```
+
+## Getting the Access Token
+
+To get the access token using `ClickupAPIWrapper.get_access_token`, use the following code:
+
+```
+access_token = ClickupAPIWrapper.get_access_token(
+    oauth_client_id, oauth_client_secret, code
+)
+```
