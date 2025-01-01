@@ -74,9 +74,9 @@ To fetch a pull request from a remote repository and create a new branch locally
 git fetch origin pull/ID/head:BRANCH_NAME
 ```
 
-Replace `ID` with the actual pull request number and `BRANCH_NAME` with the name of the new branch that will be created locally.
+Replace `ID` with the actual pull request number and `BRANCH_NAME` with the name of the new branch.
 
-For example, if you want to fetch pull request number 42 and create a new branch named `feature-branch`, use the following command:
+For example, to fetch pull request number 42 and create a new branch named `feature-branch`, use the following command:
 
 ```
 git fetch origin pull/42/head:feature-branch
@@ -84,15 +84,15 @@ git fetch origin pull/42/head:feature-branch
 
 ## Switching to the New Branch
 
-After fetching the pull request and creating a new branch, you can switch to the new branch using the following command:
+To switch to the new branch that was created, use the following command:
 
 ```
 git switch BRANCH_NAME
 ```
 
-Replace `BRANCH_NAME` with the name of the branch you created in the previous step.
+Replace `BRANCH_NAME` with the name of the branch you want to switch to.
 
-For example, if you created a branch named `feature-branch`, use the following command to switch to it:
+For example, to switch to the branch named `feature-branch`, use the following command:
 
 ```
 git switch feature-branch
