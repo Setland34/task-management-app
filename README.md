@@ -45,3 +45,24 @@ This will create a `build` directory with the production-ready files.
 ## Deployment
 
 To deploy the application, follow the instructions provided by your hosting provider. Ensure that you have set up the necessary environment variables for the application to function correctly.
+
+## User Authentication and Authorization
+
+The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Follow these steps to set up user authentication and authorization:
+
+1. Register a new user:
+   - Navigate to the registration page.
+   - Fill in the required information (username and password).
+   - Submit the registration form.
+
+2. Log in with an existing user:
+   - Navigate to the login page.
+   - Enter your username and password.
+   - Submit the login form.
+
+3. Log out:
+   - Click the logout button to log out of the application.
+
+4. User permissions:
+   - Only authenticated users can create, update, and delete tasks.
+   - Ensure that you are logged in to access and modify tasks.

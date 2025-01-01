@@ -105,3 +105,22 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+/* Styles for task prioritization */
+#task-list ul li.low {
+    background-color: #d4edda;
+}
+
+#task-list ul li.medium {
+    background-color: #fff3cd;
+}
+
+#task-list ul li.high {
+    background-color: #f8d7da;
+}
+
+/* Styles for due dates */
+#task-list ul li .due-date {
+    font-weight: bold;
+    color: #333;
+}
