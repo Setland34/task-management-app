@@ -66,3 +66,12 @@ The application includes user authentication and authorization to ensure that on
 4. User permissions:
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
+
+## Git Rebase with Signoff
+
+The command `git rebase HEAD~3 --signoff` is used to rebase the last three commits and add a sign-off message to each commit. This is typically used to indicate that the author agrees to the Developer Certificate of Origin (DCO).
+
+* The `HEAD~3` part specifies the last three commits.
+* The `--signoff` option adds a "Signed-off-by" line at the end of the commit message.
+
+This command is useful when you need to rebase your commits and ensure that each commit has a sign-off message, which is often required for contributing to open source projects.
