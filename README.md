@@ -65,3 +65,19 @@ os.environ["NETWORK_ID"] = "base-sepolia"  # or "base-mainnet"
 ```
 
 This code will prompt you to enter the values for the required environment variables if they are not already set. You can also set the `NETWORK_ID` environment variable to specify the network to use (default is `base-sepolia`).
+
+## Fetching a Pull Request
+
+To fetch a pull request from a remote repository and create a new branch locally, use the following command:
+
+```
+git fetch origin pull/ID/head:BRANCH_NAME
+```
+
+Replace `ID` with the actual pull request number and `BRANCH_NAME` with the name of the new branch that will be created locally.
+
+For example, if you want to fetch pull request number 42 and create a new branch named `feature-branch`, use the following command:
+
+```
+git fetch origin pull/42/head:feature-branch
+```
