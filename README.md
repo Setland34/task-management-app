@@ -156,3 +156,11 @@ access_token = ClickupAPIWrapper.get_access_token(
     oauth_client_id, oauth_client_secret, code
 )
 ```
+
+## Handling Error: Code Already Used
+
+If you encounter the error `{'err': 'Code already used', 'ECODE': 'OAUTH_014'}`, it means you have already used this code once. Go back a step and generate a new code. Our best guess for the URL to get a new code is:
+
+```
+https://app.clickup.com/api?client_id=B5D61F8EVO04PR0JX0U73984LLS9GI6P&redirect_uri=https://google.com
+```
