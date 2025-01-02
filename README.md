@@ -135,3 +135,19 @@ To create signed commits in Git, follow these steps:
    ```
 
 This will create a signed commit with the specified message.
+
+## Pushing Local Commits to the Remote Repository
+
+To push your local commits to the remote repository, follow these steps:
+
+1. Ensure you have committed your changes locally using the command:
+   ```
+   git commit -m "Your commit message"
+   ```
+
+2. Push your local commits to the remote repository using the command:
+   ```
+   git push
+   ```
+
+The remote repository URL is specified in the `.licrc` file as `https://github.com/Setland34/task-management-app`.
