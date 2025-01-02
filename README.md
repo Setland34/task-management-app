@@ -67,6 +67,21 @@ The application includes user authentication and authorization to ensure that on
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
 
+## Creating Signed Commits Using GPG
+
+To create a signed commit in Git, you can use the `-S` option with the `git commit` command. Here are the steps to create a signed commit:
+
+1. Ensure you have a GPG key set up and configured for signing commits. You can generate a GPG key using the command `gpg --gen-key` and follow the prompts.
+2. Add your GPG key to your Git configuration using the command `git config --global user.signingkey <your-gpg-key-id>`.
+3. Use the `git commit -S -m "YOUR_COMMIT_MESSAGE"` command to create a signed commit. The `-S` option tells Git to sign the commit with your GPG key.
+
+For example, if you want to create a signed commit with the message "Initial commit", you would use the following command:
+```
+$ git commit -S -m "Initial commit"
+```
+
+This will create a signed commit with the specified message.
+
 ## Contributing Guidelines
 
 We welcome contributions from the community! To contribute to the project, please follow these guidelines:
