@@ -89,3 +89,15 @@ The `git rebase -i HEAD~<number_of_commits>` command is used to interactively re
 7. If you encounter conflicts, resolve them and run `git rebase --continue` to proceed.
 
 This process allows you to clean up your commit history and make it more readable. Be cautious when rebasing, especially if you are working on a shared branch, as it can rewrite commit history.
+
+## Configuring Git to Sign All Commits with a GPG Key
+
+To configure Git to sign all commits with a GPG key by default, use the following command:
+
+```
+git config commit.gpgsign true
+```
+
+This command sets the `commit.gpgsign` configuration variable to `true` in the Git configuration file. When this configuration is enabled, Git will automatically sign all commits using the GPG key associated with the user. This helps in verifying the authenticity of the commits and ensures that they have not been tampered with.
+
+To use this feature, you need to have a GPG key set up and configured with your Git user identity. For more information on setting up and using GPG keys with Git, you can refer to the official Git documentation.
