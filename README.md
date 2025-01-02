@@ -67,19 +67,32 @@ The application includes user authentication and authorization to ensure that on
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
 
-## Interactive Rebase with `git rebase -i HEAD~<number_of_commits>`
+## Contributing Guidelines
 
-The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits. This allows you to edit, reorder, squash, or drop commits in your repository. Here are the steps to use this command:
+We welcome contributions from the community! To contribute to this project, please follow these steps:
 
-1. Open your terminal and navigate to the root directory of your repository.
-2. Run the command `git rebase -i HEAD~<number_of_commits>`, replacing `<number_of_commits>` with the number of commits you want to rebase.
-3. An interactive editor will open, displaying the list of commits to be rebased. Each commit will be prefixed with a command (e.g., pick, squash, edit).
-4. Modify the commands as needed. For example, you can change `pick` to `squash` to combine commits, or to `edit` to modify a commit message.
-5. Save and close the editor to start the rebase process.
-6. If you chose to edit a commit, make the necessary changes and run `git rebase --continue` to proceed with the rebase.
-7. If you encounter conflicts, resolve them and run `git rebase --continue` to proceed.
+1. Fork the repository.
+2. Create a new branch for your feature or bugfix.
+3. Make your changes and commit them with a clear and descriptive message.
+4. Push your changes to your forked repository.
+5. Open a pull request to the main repository.
 
-This process allows you to clean up your commit history and make it more readable. Be cautious when rebasing, especially if you are working on a shared branch, as it can rewrite commit history.
+### Guidelines for Submitting Issues and Pull Requests
+
+- Before submitting an issue, please search the existing issues to see if your problem has already been reported.
+- When submitting an issue, provide as much detail as possible, including steps to reproduce the problem and any relevant screenshots.
+- When submitting a pull request, ensure that your code follows the project's coding standards and includes appropriate tests.
+
+### Coding Standards and Best Practices
+
+- Follow the coding style and conventions used in the existing codebase.
+- Write clear and concise commit messages.
+- Include comments in your code to explain the purpose of complex or non-obvious sections.
+- Ensure that your code is well-tested and passes all existing tests.
+
+### Code of Conduct
+
+We are committed to creating a welcoming and inclusive environment for all contributors. Please read and follow our [Code of Conduct](CODE_OF_CONDUCT.md) to ensure a positive experience for everyone.
 
 ## Frequently Asked Questions (FAQ)
 
@@ -97,61 +110,21 @@ Use the command `npm run build` to create a production build.
 
 ### How do I deploy the application?
 
-Follow the deployment instructions provided in the "Deployment" section above.
+Follow the instructions provided by your hosting provider and ensure that you have set up the necessary environment variables.
 
-### How do I register a new user?
+### How do I report a bug or request a feature?
 
-Navigate to the registration page, fill in the required information (username and password), and submit the registration form.
+Submit an issue on the project's GitHub repository, providing as much detail as possible.
 
-### How do I log in with an existing user?
+### How do I contribute to the project?
 
-Navigate to the login page, enter your username and password, and submit the login form.
-
-### How do I log out?
-
-Click the logout button to log out of the application.
-
-### How do I create, update, and delete tasks?
-
-Ensure that you are logged in. Only authenticated users can create, update, and delete tasks.
-
-## Contributing Guidelines
-
-We welcome contributions from the community! To contribute to this project, please follow these guidelines:
-
-1. Fork the repository and create a new branch for your feature or bug fix.
-2. Make your changes and ensure that the code passes all tests.
-3. Submit a pull request with a clear description of your changes.
-
-### Submitting Issues and Pull Requests
-
-* When submitting issues, please provide detailed information about the problem and steps to reproduce it.
-* When submitting pull requests, ensure that your code follows the project's coding standards and includes tests for any new functionality.
-
-### Coding Standards and Best Practices
-
-* Follow the existing code style and conventions used in the project.
-* Write clear and concise commit messages.
-* Ensure that your code is well-documented and includes comments where necessary.
-* Write tests for any new functionality or changes to existing functionality.
-
-### Code of Conduct
-
-We are committed to providing a welcoming and inclusive environment for all contributors. By participating in this project, you agree to abide by our code of conduct:
-
-* Be respectful and considerate of others.
-* Avoid offensive or inappropriate language and behavior.
-* Be open to constructive feedback and suggestions.
-* Report any unacceptable behavior to the project maintainers.
+Follow the contributing guidelines provided in the "Contributing Guidelines" section above.
 
 ## Acknowledgments and Credits
 
-We would like to thank the following third-party libraries, tools, and resources used in this project:
+We would like to thank the following individuals and organizations for their contributions to this project:
 
-* [Library/Tool Name] - Description of how it was used in the project.
-* [Library/Tool Name] - Description of how it was used in the project.
+- [Third-party library/tool/resource] - Description of how it was used in the project.
+- [Contributor Name] - Description of their contribution to the project.
 
-We also want to acknowledge the contributions of the following individuals:
-
-* [Contributor Name] - Description of their contributions.
-* [Contributor Name] - Description of their contributions.
+This project would not have been possible without their support and assistance.
