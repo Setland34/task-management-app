@@ -20,3 +20,6 @@ toolkit = ClickupToolkit.from_clickup_api_wrapper(clickup_api_wrapper)
 print(
     f"Found team_id: {clickup_api_wrapper.team_id}.\nMost request require the team id, so we store it for you in the toolkit, we assume the first team in your list is the one you want. \nNote: If you know this is the wrong ID, you can pass it at initialization."
 )
+Found team_id: 9011010153.
+Most request require the team id, so we store it for you in the toolkit, we assume the first team in your list is the one you want. 
+Note: If you know this is the wrong ID, you can pass it at initialization.
