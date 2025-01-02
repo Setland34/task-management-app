@@ -203,3 +203,13 @@ def print_and_run(command):
     print("".join(["-"] * 80))
     return response
 ```
+
+## Running Commands with Helper Function
+
+To run commands with the helper function, use the following code:
+
+```
+print_and_run("Get all the teams that the user is authorized to access")
+print_and_run("Get all the spaces available to the team")
+print_and_run("Get all the folders for the team")
+```
