@@ -193,4 +193,5 @@ document.addEventListener('DOMContentLoaded', () => {
     print_and_run(`Create a task called 'Test Task - ${time_str}' with description 'This is a Test'`);
     print_and_run(`Create a list called 'Test List - ${time_str}'`);
     print_and_run(`Create a folder called 'Test Folder - ${time_str}'`);
+    print_and_run("Create a list called 'Test List - 18/09/2023-10:34:01' with content My test list with high priority and status red");
 });
