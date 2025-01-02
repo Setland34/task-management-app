@@ -1,2 +1,5 @@
 [commit]
   gpgsign = true
+
+[user]
+  signingkey = DF:B5:9B:70:5C:47:9E:4E:FF:34:AD:BF:F9:B8:DC:AF:5F:74:D3:F6:58:91:F3:8C:D1:B1:0D:C8:D3:F1:42:20
