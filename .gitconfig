@@ -1,5 +1,17 @@
 [commit]
-  gpgsign = true
+    gpgsign = true
 
 [user]
-  signingkey = DF:B5:9B:70:5C:47:9E:4E:FF:34:AD:BF:F9:B8:DC:AF:5F:74:D3:F6:58:91:F3:8C:D1:B1:0D:C8:D3:F1:42:20
+    name = Your Name
+    email = your.email@example.com
+
+[alias]
+    co = checkout
+    br = branch
+    ci = commit
+    st = status
+    lg = log --oneline --graph --decorate --all
+
+# The following settings ensure that all commits are signed with a GPG key by default.
+# This helps in verifying the authenticity of the commits and ensures that they have not been tampered with.
+# Make sure you have a GPG key set up and configured with your Git user identity.
