@@ -5,21 +5,25 @@ This is a web-based task management application where users can create, update, 
 ## Setup Instructions
 
 1. Clone the repository:
+
    ```
    git clone <repository-url>
    ```
 
 2. Navigate to the project directory:
+
    ```
    cd <project-directory>
    ```
 
 3. Install the required dependencies:
+
    ```
-   npm install
+    install
    ```
 
 4. Start the development server:
+
    ```
    npm start
    ```
@@ -29,6 +33,7 @@ This is a web-based task management application where users can create, update, 
 ## Running Tests
 
 To run tests, use the following command:
+
 ```
 npm test
 ```
@@ -36,6 +41,7 @@ npm test
 ## Building for Production
 
 To create a production build, use the following command:
+
 ```
 npm run build
 ```
@@ -51,16 +57,19 @@ To deploy the application, follow the instructions provided by your hosting prov
 The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Follow these steps to set up user authentication and authorization:
 
 1. Register a new user:
+
    - Navigate to the registration page.
    - Fill in the required information (username and password).
    - Submit the registration form.
 
 2. Log in with an existing user:
+
    - Navigate to the login page.
    - Enter your username and password.
    - Submit the login form.
 
 3. Log out:
+
    - Click the logout button to log out of the application.
 
 4. User permissions:
