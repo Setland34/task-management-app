@@ -194,4 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     print_and_run(`Create a list called 'Test List - ${time_str}'`);
     print_and_run(`Create a folder called 'Test Folder - ${time_str}'`);
     print_and_run("Create a list called 'Test List - 18/09/2023-10:34:01' with content My test list with high priority and status red");
+
+    print_and_run("Figure out what user ID Rodrigo is, create a task called 'Rod's task', assign it to Rodrigo");
 });
