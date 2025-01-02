@@ -80,3 +80,62 @@ The `git rebase -i HEAD~<number_of_commits>` command is used to interactively re
 7. If you encounter conflicts, resolve them and run `git rebase --continue` to proceed.
 
 This process allows you to clean up your commit history and make it more readable. Be cautious when rebasing, especially if you are working on a shared branch, as it can rewrite commit history.
+
+## Frequently Asked Questions (FAQ)
+
+### How do I set up the project?
+
+Follow the setup instructions provided in the "Setup Instructions" section above.
+
+### How do I run tests?
+
+Use the command `npm test` to run tests.
+
+### How do I create a production build?
+
+Use the command `npm run build` to create a production build.
+
+### How do I deploy the application?
+
+Follow the deployment instructions provided in the "Deployment" section above.
+
+### How do I register a new user?
+
+Navigate to the registration page, fill in the required information (username and password), and submit the registration form.
+
+### How do I log in with an existing user?
+
+Navigate to the login page, enter your username and password, and submit the login form.
+
+### How do I log out?
+
+Click the logout button to log out of the application.
+
+### How do I create, update, and delete tasks?
+
+Ensure that you are logged in. Only authenticated users can create, update, and delete tasks.
+
+## Contributing Guidelines
+
+We welcome contributions from the community! To contribute to this project, please follow these guidelines:
+
+1. Fork the repository and create a new branch for your feature or bug fix.
+2. Make your changes and ensure that the code passes all tests.
+3. Submit a pull request with a clear description of your changes.
+
+### Submitting Issues and Pull Requests
+
+* When submitting issues, please provide detailed information about the problem and steps to reproduce it.
+* When submitting pull requests, ensure that your code follows the project's coding standards and includes tests for any new functionality.
+
+## Acknowledgments and Credits
+
+We would like to thank the following third-party libraries, tools, and resources used in this project:
+
+* [Library/Tool Name] - Description of how it was used in the project.
+* [Library/Tool Name] - Description of how it was used in the project.
+
+We also want to acknowledge the contributions of the following individuals:
+
+* [Contributor Name] - Description of their contributions.
+* [Contributor Name] - Description of their contributions.
