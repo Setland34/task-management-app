@@ -128,6 +128,22 @@ We welcome contributions from the community! To contribute to this project, plea
 * When submitting issues, please provide detailed information about the problem and steps to reproduce it.
 * When submitting pull requests, ensure that your code follows the project's coding standards and includes tests for any new functionality.
 
+### Coding Standards and Best Practices
+
+* Follow the existing code style and conventions used in the project.
+* Write clear and concise commit messages.
+* Ensure that your code is well-documented and includes comments where necessary.
+* Write tests for any new functionality or changes to existing functionality.
+
+### Code of Conduct
+
+We are committed to providing a welcoming and inclusive environment for all contributors. By participating in this project, you agree to abide by our code of conduct:
+
+* Be respectful and considerate of others.
+* Avoid offensive or inappropriate language and behavior.
+* Be open to constructive feedback and suggestions.
+* Report any unacceptable behavior to the project maintainers.
+
 ## Acknowledgments and Credits
 
 We would like to thank the following third-party libraries, tools, and resources used in this project:
