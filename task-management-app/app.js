@@ -159,6 +159,18 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log(`Adding user: ${userId} to task: ${taskId}`);
     }
 
+    function createTask(name, description) {
+        const task = {
+            id: Date.now(),
+            title: name,
+            description: description,
+            priority: 'medium',
+            dueDate: new Date().toISOString().split('T')[0]
+        };
+
+        addTask(task);
+    }
+
     print_and_run("Change the description of task 8685mj6cd to 'Look ma no hands'");
 
     const task_id = "8685mb5fn";
@@ -168,4 +180,7 @@ document.addEventListener('DOMContentLoaded', () => {
     print_and_run(`Remove user ${user_id} from the assignees of task id ${task_id}`);
     print_and_run(`What are the assignees of task id ${task_id}?`);
     print_and_run(`Add user ${user_id} to the assignees of task id ${task_id}`);
+
+    const time_str = datetime.now().strftime("%d/%m/%Y-%H:%M:%S");
+    print_and_run(`Create a task called 'Test Task - ${time_str}' with description 'This is a Test'`);
 });
