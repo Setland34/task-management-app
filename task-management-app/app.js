@@ -183,4 +183,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const time_str = datetime.now().strftime("%d/%m/%Y-%H:%M:%S");
     print_and_run(`Create a task called 'Test Task - ${time_str}' with description 'This is a Test'`);
+    print_and_run(`Create a list called 'Test List - ${time_str}'`);
 });
