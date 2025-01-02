@@ -139,5 +139,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    function checkUserPermissions(taskId, userId) {
+        // Implement user permission check logic here
+        console.log(`Checking permissions for task: ${taskId} and user: ${userId}`);
+    }
+
+    function getAssignees(taskId) {
+        // Implement logic to get assignees for a task
+        console.log(`Getting assignees for task: ${taskId}`);
+    }
+
+    function removeAssignee(taskId, userId) {
+        // Implement logic to remove an assignee from a task
+        console.log(`Removing user: ${userId} from task: ${taskId}`);
+    }
+
+    function addAssignee(taskId, userId) {
+        // Implement logic to add an assignee to a task
+        console.log(`Adding user: ${userId} to task: ${taskId}`);
+    }
+
     print_and_run("Change the description of task 8685mj6cd to 'Look ma no hands'");
+
+    const task_id = "8685mb5fn";
+    const user_id = 81928627;
+
+    print_and_run(`What are the assignees of task id ${task_id}?`);
+    print_and_run(`Remove user ${user_id} from the assignees of task id ${task_id}`);
+    print_and_run(`What are the assignees of task id ${task_id}?`);
+    print_and_run(`Add user ${user_id} to the assignees of task id ${task_id}`);
 });
