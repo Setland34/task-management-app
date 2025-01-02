@@ -3,6 +3,11 @@ name = "task-management-app"
 version = "0.1.0"
 description = "A web-based task management application with user authentication and authorization."
 authors = ["Setland34 <setland34@example.com>"]
+license = "MIT"
+repository = "https://github.com/Setland34/task-management-app"
+homepage = "https://setland34.github.io/task-management-app"
+keywords = ["task management", "web application", "authentication", "authorization"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.8"
