@@ -188,3 +188,18 @@ agent = initialize_agent(
     toolkit.get_tools(), llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
 )
 ```
+
+## Helper Function for Demo
+
+To add a helper function `print_and_run` for demo purposes, use the following code:
+
+```
+# helper function for demo
+def print_and_run(command):
+    print("\033[94m$ COMMAND\033[0m")
+    print(command)
+    print("\n\033[94m$ AGENT\033[0m")
+    response = agent.run(command)
+    print("".join(["-"] * 80))
+    return response
+```
