@@ -117,4 +117,27 @@ document.addEventListener('DOMContentLoaded', () => {
             document.body.removeChild(notification);
         }, 3000);
     }
+
+    function changeTaskDescription(taskId, newDescription) {
+        const taskItems = taskList.querySelectorAll('li');
+        taskItems.forEach((taskItem) => {
+            if (taskItem.dataset.id === taskId.toString()) {
+                const title = taskItem.querySelector('span').textContent.split(' - ')[0];
+                const priority = taskItem.classList[0];
+                const dueDate = taskItem.querySelector('.due-date').textContent;
+
+                const updatedTask = {
+                    id: taskId,
+                    title: title,
+                    description: newDescription,
+                    priority: priority,
+                    dueDate: dueDate
+                };
+
+                updateTask(taskId, updatedTask);
+            }
+        });
+    }
+
+    print_and_run("Change the description of task 8685mj6cd to 'Look ma no hands'");
 });
