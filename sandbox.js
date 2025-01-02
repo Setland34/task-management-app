@@ -10,3 +10,6 @@ print(ClickupAPIWrapper.get_access_code_url(oauth_client_id, redirect_uri))
 # https://app.clickup.com/api?client_id=ABC...&redirect_uri=https://google.com
 
 code = "THISISMYCODERIGHTHERE"
+access_token = ClickupAPIWrapper.get_access_token(
+    oauth_client_id, oauth_client_secret, code
+)
