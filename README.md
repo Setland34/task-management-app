@@ -67,48 +67,16 @@ The application includes user authentication and authorization to ensure that on
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
 
-## Contributing Guidelines
+## Interactive Rebase with `git rebase -i HEAD~<number_of_commits>`
 
-We welcome contributions from the community! To contribute to the project, please follow these guidelines:
+The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits. This allows you to edit, reorder, squash, or drop commits in your repository. Here are the steps to use this command:
 
-1. Fork the repository and create a new branch for your feature or bug fix.
-2. Write clear and concise commit messages.
-3. Ensure that your code follows the project's coding standards and best practices.
-4. Submit a pull request with a detailed description of your changes.
-5. Be responsive to feedback and be willing to make revisions if necessary.
+1. Open your terminal and navigate to the root directory of your repository.
+2. Run the command `git rebase -i HEAD~<number_of_commits>`, replacing `<number_of_commits>` with the number of commits you want to rebase.
+3. An interactive editor will open, displaying the list of commits to be rebased. Each commit will be prefixed with a command (e.g., pick, squash, edit).
+4. Modify the commands as needed. For example, you can change `pick` to `squash` to combine commits, or to `edit` to modify a commit message.
+5. Save and close the editor to start the rebase process.
+6. If you chose to edit a commit, make the necessary changes and run `git rebase --continue` to proceed with the rebase.
+7. If you encounter conflicts, resolve them and run `git rebase --continue` to proceed.
 
-### Submitting Issues
-
-If you encounter any issues or have suggestions for improvements, please submit an issue on the GitHub repository. Provide as much detail as possible to help us understand and address the problem.
-
-### Code of Conduct
-
-We are committed to fostering a welcoming and inclusive environment for all contributors. Please read and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) when participating in the project.
-
-## Frequently Asked Questions (FAQ)
-
-### How do I set up the project locally?
-
-Follow the setup instructions provided in the "Setup Instructions" section above.
-
-### How do I report a bug or request a feature?
-
-Submit an issue on the GitHub repository with detailed information about the bug or feature request.
-
-### How can I contribute to the project?
-
-Refer to the "Contributing Guidelines" section above for instructions on how to contribute to the project.
-
-### What should I do if I encounter an error during setup or usage?
-
-Check the console for error messages and refer to the documentation for troubleshooting steps. If the issue persists, submit an issue on the GitHub repository for assistance.
-
-## Acknowledgments and Credits
-
-We would like to thank the following individuals and organizations for their contributions and support:
-
-- [Contributor Name](https://github.com/contributor) - Significant contributions to the project
-- [Third-Party Library](https://link-to-library) - Used for [specific functionality]
-- [Tool or Resource](https://link-to-tool) - Used for [specific purpose]
-
-Your contributions and support are greatly appreciated!
+This process allows you to clean up your commit history and make it more readable. Be cautious when rebasing, especially if you are working on a shared branch, as it can rewrite commit history.
