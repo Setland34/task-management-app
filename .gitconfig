@@ -1,4 +1,5 @@
 [commit]
+    # Enable GPG signing for all commits
     gpgsign = true
 
 [user]
@@ -11,7 +12,3 @@
     ci = commit
     st = status
     lg = log --oneline --graph --decorate --all
-
-# The following settings ensure that all commits are signed with a GPG key by default.
-# This helps in verifying the authenticity of the commits and ensures that they have not been tampered with.
-# Make sure you have a GPG key set up and configured with your Git user identity.
