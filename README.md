@@ -164,3 +164,15 @@ If you encounter the error `{'err': 'Code already used', 'ECODE': 'OAUTH_014'}`,
 ```
 https://app.clickup.com/api?client_id=B5D61F8EVO04PR0JX0U73984LLS9GI6P&redirect_uri=https://google.com
 ```
+
+## Initializing the Clickup Toolkit
+
+To initialize the Clickup toolkit with the access token and print the team ID, use the following code:
+
+```
+clickup_api_wrapper = ClickupAPIWrapper(access_token=access_token)
+toolkit = ClickupToolkit.from_clickup_api_wrapper(clickup_api_wrapper)
+print(
+    f"Found team_id: {clickup_api_wrapper.team_id}.\nMost request require the team id, so we store it for you in the toolkit, we assume the first team in your list is the one you want. \nNote: If you know this is the wrong ID, you can pass it at initialization."
+)
+```
