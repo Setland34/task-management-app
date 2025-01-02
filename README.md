@@ -176,3 +176,15 @@ print(
     f"Found team_id: {clickup_api_wrapper.team_id}.\nMost request require the team id, so we store it for you in the toolkit, we assume the first team in your list is the one you want. \nNote: If you know this is the wrong ID, you can pass it at initialization."
 )
 ```
+
+## Initializing the Agent
+
+To initialize the agent using `OpenAI` and `initialize_agent`, use the following code:
+
+```
+llm = OpenAI(temperature=0, openai_api_key="")
+
+agent = initialize_agent(
+    toolkit.get_tools(), llm, agent=AgentType.ZERO_SHOT_REACT_DESCRIPTION, verbose=True
+)
+```
