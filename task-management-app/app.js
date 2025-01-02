@@ -171,6 +171,14 @@ document.addEventListener('DOMContentLoaded', () => {
         addTask(task);
     }
 
+    function createList(name) {
+        console.log(`Creating list: ${name}`);
+    }
+
+    function createFolder(name) {
+        console.log(`Creating folder: ${name}`);
+    }
+
     print_and_run("Change the description of task 8685mj6cd to 'Look ma no hands'");
 
     const task_id = "8685mb5fn";
@@ -184,4 +192,5 @@ document.addEventListener('DOMContentLoaded', () => {
     const time_str = datetime.now().strftime("%d/%m/%Y-%H:%M:%S");
     print_and_run(`Create a task called 'Test Task - ${time_str}' with description 'This is a Test'`);
     print_and_run(`Create a list called 'Test List - ${time_str}'`);
+    print_and_run(`Create a folder called 'Test Folder - ${time_str}'`);
 });
