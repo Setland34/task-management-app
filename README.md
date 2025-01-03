@@ -19,7 +19,17 @@ This is a web-based task management application where users can create, update, 
    npm install
    ```
 
-4. Start the application:
+4. Install OpenZeppelin Contracts library:
+   ```
+   npm install @openzeppelin/contracts
+   ```
+
+5. Install OpenZeppelin Contracts library using forge:
+   ```
+   forge install OpenZeppelin/openzeppelin-contracts
+   ```
+
+6. Start the application:
    ```
    npm start
    ```
