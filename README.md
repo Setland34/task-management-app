@@ -5,18 +5,47 @@ This is a web-based task management application where users can create, update, 
 ## Setup Instructions
 
 1. Clone the repository:
+
+   ```
+   git clone <repository-url>
+   ```
+
 2. Navigate to the project directory:
+
+   ```
+   cd <project-directory>
+   ```
+
 3. Install the required dependencies:
-install
+
+   ```
+    install
+   ```
+
 4. Start the development server:
- 5. Open your browser and navigate to `http://localhost:3000` to view the application.
+
+   ```
+   npm start
+   ```
+
+5. Open your browser and navigate to `http://localhost:3000` to view the application.
 
 ## Running Tests
 
 To run tests, use the following command:
+
+```
+npm test
+```
+
 ## Building for Production
 
 To create a production build, use the following command:
+
+```
+npm run build
+```
+
 This will create a `build` directory with the production-ready files.
 
 ## Deployment
@@ -47,26 +76,6 @@ The application includes user authentication and authorization to ensure that on
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
 
-## Git Rebase with Signoff
-
-The command `git rebase HEAD~3 --signoff` is used to rebase the last three commits and add a sign-off message to each commit. This is typically used to indicate that the author agrees to the Developer Certificate of Origin (DCO).
-
-* The `HEAD~3` part specifies the last three commits.
-* The `--signoff` option adds a "Signed-off-by" line at the end of the commit message.
-
-This command is useful when you need to rebase your commits and ensure that each commit has a sign-off message, which is often required for contributing to open source projects.
-
-## Pushing Changes with Force-With-Lease
-
-After rebasing your commits with a sign-off message, you need to push the changes to the remote repository. Use the following command to push the changes:
-The `--force-with-lease` option ensures that you only force-push if your local branch is up-to-date with the remote branch, preventing accidental overwrites of other people's changes.
-
-## Installing langchain-community Package
-
-To install the `langchain-community` package, use the following command:
-## Reloading and Autoreloading Extensions
-
-To reload and autoreload extensions, use the following commands:
 ## Interactive Rebase with `git rebase -i HEAD~<number_of_commits>`
 
 The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits. This allows you to edit, reorder, squash, or drop commits in your repository. Here are the steps to use this command:
@@ -84,6 +93,11 @@ This process allows you to clean up your commit history and make it more readabl
 ## Configuring Git to Sign All Commits with a GPG Key
 
 To configure Git to sign all commits with a GPG key by default, use the following command:
+
+```
+git config commit.gpgsign true
+```
+
 This command sets the `commit.gpgsign` configuration variable to `true` in the Git configuration file. When this configuration is enabled, Git will automatically sign all commits using the GPG key associated with the user. This helps in verifying the authenticity of the commits and ensures that they have not been tampered with.
 
 To use this feature, you need to have a GPG key set up and configured with your Git user identity. For more information on setting up and using GPG keys with Git, you can refer to the official Git documentation.
