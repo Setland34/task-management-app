@@ -5,47 +5,18 @@ This is a web-based task management application where users can create, update, 
 ## Setup Instructions
 
 1. Clone the repository:
-
-   ```
-   git clone <repository-url>
-   ```
-
 2. Navigate to the project directory:
-
-   ```
-   cd <project-directory>
-   ```
-
 3. Install the required dependencies:
-
-   ```
-    install
-   ```
-
+install
 4. Start the development server:
-
-   ```
-   npm start
-   ```
-
 5. Open your browser and navigate to `http://localhost:3000` to view the application.
 
 ## Running Tests
 
 To run tests, use the following command:
-
-```
-npm test
-```
-
 ## Building for Production
 
 To create a production build, use the following command:
-
-```
-npm run build
-```
-
 This will create a `build` directory with the production-ready files.
 
 ## Deployment
@@ -93,11 +64,131 @@ This process allows you to clean up your commit history and make it more readabl
 ## Configuring Git to Sign All Commits with a GPG Key
 
 To configure Git to sign all commits with a GPG key by default, use the following command:
-
-```
-git config commit.gpgsign true
-```
-
 This command sets the `commit.gpgsign` configuration variable to `true` in the Git configuration file. When this configuration is enabled, Git will automatically sign all commits using the GPG key associated with the user. This helps in verifying the authenticity of the commits and ensures that they have not been tampered with.
 
 To use this feature, you need to have a GPG key set up and configured with your Git user identity. For more information on setting up and using GPG keys with Git, you can refer to the official Git documentation.
+document.addEventListener('DOMContentLoaded', () => {
+    const taskForm = document.querySelector('#task-form form');
+    const taskList = document.querySelector('#task-list ul');
+
+    taskForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const title = document.querySelector('#task-title').value;
+        const description = document.querySelector('#task-desc').value;
+        const priority = document.querySelector('#task-priority').value;
+        const dueDate = document.querySelector('#task-due-date').value;
+
+        const task = {
+            id: Date.now(),
+            title,
+            description,
+            priority,
+            dueDate
+        };
+
+        addTask(task);
+        taskForm.reset();
+    });
+
+    function addTask(task) {
+        const taskItem = document.createElement('li');
+        taskItem.dataset.id = task.id;
+        taskItem.classList.add(task.priority);
+        taskItem.innerHTML = `
+            <span>${task.title} - ${task.description} - ${task.priority} - <span class="due-date">${task.dueDate}</span></span>
+            <button class="edit-task">Edit</button>
+            <button class="delete-task">Delete</button>
+        `;
+        taskList.appendChild(taskItem);
+
+        // Add notification for task creation
+        showNotification(`Task "${task.title}" created with priority "${task.priority}" and due date "${task.dueDate}"`);
+    }
+
+    function updateTask(taskId, updatedTask) {
+        const taskItems = taskList.querySelectorAll('li');
+        taskItems.forEach((taskItem) => {
+            if (taskItem.dataset.id === taskId.toString()) {
+                taskItem.classList.remove(taskItem.classList[0]);
+                taskItem.classList.add(updatedTask.priority);
+                taskItem.innerHTML = `
+                    <span>${updatedTask.title} - ${updatedTask.description} - ${updatedTask.priority} - <span class="due-date">${updatedTask.dueDate}</span></span>
+                    <button class="edit-task">Edit</button>
+                    <button class="delete-task">Delete</button>
+                `;
+
+                // Add notification for task update
+                showNotification(`Task "${updatedTask.title}" updated with priority "${updatedTask.priority}" and due date "${updatedTask.dueDate}"`);
+            }
+        });
+    }
+
+    function deleteTask(taskId) {
+        const taskItems = taskList.querySelectorAll('li');
+        taskItems.forEach((taskItem) => {
+            if (taskItem.dataset.id === taskId.toString()) {
+                taskList.removeChild(taskItem);
+
+                // Add notification for task deletion
+                showNotification(`Task "${taskItem.querySelector('span').textContent}" deleted`);
+            }
+        });
+    }
+
+    taskList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('edit-task')) {
+            const taskItem = event.target.parentElement;
+            const taskId = taskItem.dataset.id;
+            const title = taskItem.querySelector('span').textContent.split(' - ')[0];
+            const description = taskItem.querySelector('span').textContent.split(' - ')[1];
+            const priority = taskItem.classList[0];
+            const dueDate = taskItem.querySelector('.due-date').textContent;
+
+            document.querySelector('#task-title').value = title;
+            document.querySelector('#task-desc').value = description;
+            document.querySelector('#task-priority').value = priority;
+            document.querySelector('#task-due-date').value = dueDate;
+
+            taskForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const updatedTitle = document.querySelector('#task-title').value;
+                const updatedDescription = document.querySelector('#task-desc').value;
+                const updatedPriority = document.querySelector('#task-priority').value;
+                const updatedDueDate = document.querySelector('#task-due-date').value;
+
+                const updatedTask = {
+                    id: taskId,
+                    title: updatedTitle,
+                    description: updatedDescription,
+                    priority: updatedPriority,
+                    dueDate: updatedDueDate
+                };
+
+                updateTask(taskId, updatedTask);
+                taskForm.reset();
+            }, { once: true });
+        }
+
+        if (event.target.classList.contains('delete-task')) {
+            const taskItem = event.target.parentElement;
+            const taskId = taskItem.dataset.id;
+            deleteTask(taskId);
+        }
+    });
+
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.classList.add('notification');
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 3000);
+    }
+});
+{
+  "dependencies": {
+    "jsdom": "^25.0.1"
+  }
+}
