@@ -5,41 +5,18 @@ This is a web-based task management application where users can create, update, 
 ## Setup Instructions
 
 1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-
 2. Navigate to the project directory:
-   ```
-   cd <project-directory>
-   ```
-
 3. Install the required dependencies:
-   ```
-   npm install
-   ```
-
+install
 4. Start the development server:
-   ```
-   npm start
-   ```
-
 5. Open your browser and navigate to `http://localhost:3000` to view the application.
 
 ## Running Tests
 
 To run tests, use the following command:
-```
-npm test
-```
-
 ## Building for Production
 
 To create a production build, use the following command:
-```
-npm run build
-```
-
 This will create a `build` directory with the production-ready files.
 
 ## Deployment
@@ -51,103 +28,167 @@ To deploy the application, follow the instructions provided by your hosting prov
 The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Follow these steps to set up user authentication and authorization:
 
 1. Register a new user:
+
    - Navigate to the registration page.
    - Fill in the required information (username and password).
    - Submit the registration form.
 
 2. Log in with an existing user:
+
    - Navigate to the login page.
    - Enter your username and password.
    - Submit the login form.
 
 3. Log out:
+
    - Click the logout button to log out of the application.
 
 4. User permissions:
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
 
-## Contributing Guidelines
+## Interactive Rebase with `git rebase -i HEAD~<number_of_commits>`
 
-We welcome contributions from the community! To contribute to the project, please follow these guidelines:
+The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits. This allows you to edit, reorder, squash, or drop commits in your repository. Here are the steps to use this command:
 
-1. Fork the repository and create a new branch for your feature or bug fix.
-2. Write clear and concise commit messages.
-3. Ensure that your code follows the project's coding standards and best practices.
-4. Submit a pull request with a detailed description of your changes.
-5. Be responsive to feedback and be willing to make revisions if necessary.
+1. Open your terminal and navigate to the root directory of your repository.
+2. Run the command `git rebase -i HEAD~<number_of_commits>`, replacing `<number_of_commits>` with the number of commits you want to rebase.
+3. An interactive editor will open, displaying the list of commits to be rebased. Each commit will be prefixed with a command (e.g., pick, squash, edit).
+4. Modify the commands as needed. For example, you can change `pick` to `squash` to combine commits, or to `edit` to modify a commit message.
+5. Save and close the editor to start the rebase process.
+6. If you chose to edit a commit, make the necessary changes and run `git rebase --continue` to proceed with the rebase.
+7. If you encounter conflicts, resolve them and run `git rebase --continue` to proceed.
 
-### Submitting Issues
+This process allows you to clean up your commit history and make it more readable. Be cautious when rebasing, especially if you are working on a shared branch, as it can rewrite commit history.
 
-If you encounter any issues or have suggestions for improvements, please submit an issue on the GitHub repository. Provide as much detail as possible to help us understand and address the problem.
+## Configuring Git to Sign All Commits with a GPG Key
 
-### Code of Conduct
+To configure Git to sign all commits with a GPG key by default, use the following command:
+This command sets the `commit.gpgsign` configuration variable to `true` in the Git configuration file. When this configuration is enabled, Git will automatically sign all commits using the GPG key associated with the user. This helps in verifying the authenticity of the commits and ensures that they have not been tampered with.
 
-We are committed to fostering a welcoming and inclusive environment for all contributors. Please read and adhere to our [Code of Conduct](CODE_OF_CONDUCT.md) when participating in the project.
+To use this feature, you need to have a GPG key set up and configured with your Git user identity. For more information on setting up and using GPG keys with Git, you can refer to the official Git documentation.
+document.addEventListener('DOMContentLoaded', () => {
+    const taskForm = document.querySelector('#task-form form');
+    const taskList = document.querySelector('#task-list ul');
 
-## Frequently Asked Questions (FAQ)
+    taskForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const title = document.querySelector('#task-title').value;
+        const description = document.querySelector('#task-desc').value;
+        const priority = document.querySelector('#task-priority').value;
+        const dueDate = document.querySelector('#task-due-date').value;
 
-### How do I set up the project locally?
+        const task = {
+            id: Date.now(),
+            title,
+            description,
+            priority,
+            dueDate
+        };
 
-Follow the setup instructions provided in the "Setup Instructions" section above.
+        addTask(task);
+        taskForm.reset();
+    });
 
-### How do I report a bug or request a feature?
+    function addTask(task) {
+        const taskItem = document.createElement('li');
+        taskItem.dataset.id = task.id;
+        taskItem.classList.add(task.priority);
+        taskItem.innerHTML = `
+            <span>${task.title} - ${task.description} - ${task.priority} - <span class="due-date">${task.dueDate}</span></span>
+            <button class="edit-task">Edit</button>
+            <button class="delete-task">Delete</button>
+        `;
+        taskList.appendChild(taskItem);
 
-Submit an issue on the GitHub repository with detailed information about the bug or feature request.
+        // Add notification for task creation
+        showNotification(`Task "${task.title}" created with priority "${task.priority}" and due date "${task.dueDate}"`);
+    }
 
-### How can I contribute to the project?
+    function updateTask(taskId, updatedTask) {
+        const taskItems = taskList.querySelectorAll('li');
+        taskItems.forEach((taskItem) => {
+            if (taskItem.dataset.id === taskId.toString()) {
+                taskItem.classList.remove(taskItem.classList[0]);
+                taskItem.classList.add(updatedTask.priority);
+                taskItem.innerHTML = `
+                    <span>${updatedTask.title} - ${updatedTask.description} - ${updatedTask.priority} - <span class="due-date">${updatedTask.dueDate}</span></span>
+                    <button class="edit-task">Edit</button>
+                    <button class="delete-task">Delete</button>
+                `;
 
-Refer to the "Contributing Guidelines" section above for instructions on how to contribute to the project.
+                // Add notification for task update
+                showNotification(`Task "${updatedTask.title}" updated with priority "${updatedTask.priority}" and due date "${updatedTask.dueDate}"`);
+            }
+        });
+    }
 
-### What should I do if I encounter an error during setup or usage?
+    function deleteTask(taskId) {
+        const taskItems = taskList.querySelectorAll('li');
+        taskItems.forEach((taskItem) => {
+            if (taskItem.dataset.id === taskId.toString()) {
+                taskList.removeChild(taskItem);
 
-Check the console for error messages and refer to the documentation for troubleshooting steps. If the issue persists, submit an issue on the GitHub repository for assistance.
+                // Add notification for task deletion
+                showNotification(`Task "${taskItem.querySelector('span').textContent}" deleted`);
+            }
+        });
+    }
 
-## Acknowledgments and Credits
+    taskList.addEventListener('click', (event) => {
+        if (event.target.classList.contains('edit-task')) {
+            const taskItem = event.target.parentElement;
+            const taskId = taskItem.dataset.id;
+            const title = taskItem.querySelector('span').textContent.split(' - ')[0];
+            const description = taskItem.querySelector('span').textContent.split(' - ')[1];
+            const priority = taskItem.classList[0];
+            const dueDate = taskItem.querySelector('.due-date').textContent;
 
-We would like to thank the following individuals and organizations for their contributions and support:
+            document.querySelector('#task-title').value = title;
+            document.querySelector('#task-desc').value = description;
+            document.querySelector('#task-priority').value = priority;
+            document.querySelector('#task-due-date').value = dueDate;
 
-- [Contributor Name](https://github.com/contributor) - Significant contributions to the project
-- [Third-Party Library](https://link-to-library) - Used for [specific functionality]
-- [Tool or Resource](https://link-to-tool) - Used for [specific purpose]
+            taskForm.addEventListener('submit', (event) => {
+                event.preventDefault();
+                const updatedTitle = document.querySelector('#task-title').value;
+                const updatedDescription = document.querySelector('#task-desc').value;
+                const updatedPriority = document.querySelector('#task-priority').value;
+                const updatedDueDate = document.querySelector('#task-due-date').value;
 
-Your contributions and support are greatly appreciated!
+                const updatedTask = {
+                    id: taskId,
+                    title: updatedTitle,
+                    description: updatedDescription,
+                    priority: updatedPriority,
+                    dueDate: updatedDueDate
+                };
 
-## Creating Signed Commits
+                updateTask(taskId, updatedTask);
+                taskForm.reset();
+            }, { once: true });
+        }
 
-To create signed commits in Git, follow these steps:
+        if (event.target.classList.contains('delete-task')) {
+            const taskItem = event.target.parentElement;
+            const taskId = taskItem.dataset.id;
+            deleteTask(taskId);
+        }
+    });
 
-1. Ensure you have a GPG key set up and configured for signing commits. You can generate a GPG key using the command:
-   ```
-   gpg --gen-key
-   ```
-   Follow the prompts to generate your GPG key.
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.classList.add('notification');
+        notification.textContent = message;
+        document.body.appendChild(notification);
 
-2. Add your GPG key to your Git configuration using the command:
-   ```
-   git config --global user.signingkey <your-gpg-key-id>
-   ```
-   Replace `<your-gpg-key-id>` with your actual GPG key ID.
-
-3. Use the `-S` option with the `git commit` command to create a signed commit. For example, to create a signed commit with the message "Initial commit", use the following command:
-   ```
-   git commit -S -m "Initial commit"
-   ```
-
-This will create a signed commit with the specified message.
-
-## Pushing Local Commits to the Remote Repository
-
-To push your local commits to the remote repository, follow these steps:
-
-1. Ensure you have committed your changes locally using the command:
-   ```
-   git commit -m "Your commit message"
-   ```
-
-2. Push your local commits to the remote repository using the command:
-   ```
-   git push
-   ```
-
-The remote repository URL is specified in the `.licrc` file as `https://github.com/Setland34/task-management-app`.
+        setTimeout(() => {
+            document.body.removeChild(notification);
+        }, 3000);
+    }
+});
+{
+  "dependencies": {
+    "jsdom": "^25.0.1"
+  }
+}
