@@ -1,6 +1,6 @@
 # Task Management Application
 
-This is a web-based task management application where users can create, update, and delete tasks. The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Additional features include task prioritization, due dates, and notifications to enhance the user experience.
+This is a web-based task management application where users can create, update, and delete tasks. The application includes user authentication and authorization.
 
 ## Setup Instructions
 
@@ -28,167 +28,37 @@ To deploy the application, follow the instructions provided by your hosting prov
 The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Follow these steps to set up user authentication and authorization:
 
 1. Register a new user:
-
    - Navigate to the registration page.
    - Fill in the required information (username and password).
    - Submit the registration form.
-
 2. Log in with an existing user:
-
    - Navigate to the login page.
    - Enter your username and password.
    - Submit the login form.
-
 3. Log out:
-
    - Click the logout button to log out of the application.
-
 4. User permissions:
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
 
 ## Interactive Rebase with `git rebase -i HEAD~<number_of_commits>`
-
-The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits. This allows you to edit, reorder, squash, or drop commits in your repository. Here are the steps to use this command:
-
-1. Open your terminal and navigate to the root directory of your repository.
-2. Run the command `git rebase -i HEAD~<number_of_commits>`, replacing `<number_of_commits>` with the number of commits you want to rebase.
-3. An interactive editor will open, displaying the list of commits to be rebased. Each commit will be prefixed with a command (e.g., pick, squash, edit).
-4. Modify the commands as needed. For example, you can change `pick` to `squash` to combine commits, or to `edit` to modify a commit message.
-5. Save and close the editor to start the rebase process.
-6. If you chose to edit a commit, make the necessary changes and run `git rebase --continue` to proceed with the rebase.
-7. If you encounter conflicts, resolve them and run `git rebase --continue` to proceed.
-
-This process allows you to clean up your commit history and make it more readable. Be cautious when rebasing, especially if you are working on a shared branch, as it can rewrite commit history.
+The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits.
 
 ## Configuring Git to Sign All Commits with a GPG Key
-
 To configure Git to sign all commits with a GPG key by default, use the following command:
-This command sets the `commit.gpgsign` configuration variable to `true` in the Git configuration file. When this configuration is enabled, Git will automatically sign all commits using the GPG key associated with the user. This helps in verifying the authenticity of the commits and ensures that they have not been tampered with.
+# Task Management Application
 
-To use this feature, you need to have a GPG key set up and configured with your Git user identity. For more information on setting up and using GPG keys with Git, you can refer to the official Git documentation.
-document.addEventListener('DOMContentLoaded', () => {
-    const taskForm = document.querySelector('#task-form form');
-    const taskList = document.querySelector('#task-list ul');
+This is a web-based task management application where users can create, update, and delete tasks. The application includes user authentication and authorization.
 
-    taskForm.addEventListener('submit', (event) => {
-        event.preventDefault();
-        const title = document.querySelector('#task-title').value;
-        const description = document.querySelector('#task-desc').value;
-        const priority = document.querySelector('#task-priority').value;
-        const dueDate = document.querySelector('#task-due-date').value;
+## Setup Instructions
 
-        const task = {
-            id: Date.now(),
-            title,
-            description,
-            priority,
-            dueDate
-        };
-
-        addTask(task);
-        taskForm.reset();
-    });
-
-    function addTask(task) {
-        const taskItem = document.createElement('li');
-        taskItem.dataset.id = task.id;
-        taskItem.classList.add(task.priority);
-        taskItem.innerHTML = `
-            <span>${task.title} - ${task.description} - ${task.priority} - <span class="due-date">${task.dueDate}</span></span>
-            <button class="edit-task">Edit</button>
-            <button class="delete-task">Delete</button>
-        `;
-        taskList.appendChild(taskItem);
-
-        // Add notification for task creation
-        showNotification(`Task "${task.title}" created with priority "${task.priority}" and due date "${task.dueDate}"`);
-    }
-
-    function updateTask(taskId, updatedTask) {
-        const taskItems = taskList.querySelectorAll('li');
-        taskItems.forEach((taskItem) => {
-            if (taskItem.dataset.id === taskId.toString()) {
-                taskItem.classList.remove(taskItem.classList[0]);
-                taskItem.classList.add(updatedTask.priority);
-                taskItem.innerHTML = `
-                    <span>${updatedTask.title} - ${updatedTask.description} - ${updatedTask.priority} - <span class="due-date">${updatedTask.dueDate}</span></span>
-                    <button class="edit-task">Edit</button>
-                    <button class="delete-task">Delete</button>
-                `;
-
-                // Add notification for task update
-                showNotification(`Task "${updatedTask.title}" updated with priority "${updatedTask.priority}" and due date "${updatedTask.dueDate}"`);
-            }
-        });
-    }
-
-    function deleteTask(taskId) {
-        const taskItems = taskList.querySelectorAll('li');
-        taskItems.forEach((taskItem) => {
-            if (taskItem.dataset.id === taskId.toString()) {
-                taskList.removeChild(taskItem);
-
-                // Add notification for task deletion
-                showNotification(`Task "${taskItem.querySelector('span').textContent}" deleted`);
-            }
-        });
-    }
-
-    taskList.addEventListener('click', (event) => {
-        if (event.target.classList.contains('edit-task')) {
-            const taskItem = event.target.parentElement;
-            const taskId = taskItem.dataset.id;
-            const title = taskItem.querySelector('span').textContent.split(' - ')[0];
-            const description = taskItem.querySelector('span').textContent.split(' - ')[1];
-            const priority = taskItem.classList[0];
-            const dueDate = taskItem.querySelector('.due-date').textContent;
-
-            document.querySelector('#task-title').value = title;
-            document.querySelector('#task-desc').value = description;
-            document.querySelector('#task-priority').value = priority;
-            document.querySelector('#task-due-date').value = dueDate;
-
-            taskForm.addEventListener('submit', (event) => {
-                event.preventDefault();
-                const updatedTitle = document.querySelector('#task-title').value;
-                const updatedDescription = document.querySelector('#task-desc').value;
-                const updatedPriority = document.querySelector('#task-priority').value;
-                const updatedDueDate = document.querySelector('#task-due-date').value;
-
-                const updatedTask = {
-                    id: taskId,
-                    title: updatedTitle,
-                    description: updatedDescription,
-                    priority: updatedPriority,
-                    dueDate: updatedDueDate
-                };
-
-                updateTask(taskId, updatedTask);
-                taskForm.reset();
-            }, { once: true });
-        }
-
-        if (event.target.classList.contains('delete-task')) {
-            const taskItem = event.target.parentElement;
-            const taskId = taskItem.dataset.id;
-            deleteTask(taskId);
-        }
-    });
-
-    function showNotification(message) {
-        const notification = document.createElement('div');
-        notification.classList.add('notification');
-        notification.textContent = message;
-        document.body.appendChild(notification);
-
-        setTimeout(() => {
-            document.body.removeChild(notification);
-        }, 3000);
-    }
-});
-{
-  "dependencies": {
-    "jsdom": "^25.0.1"
-  }
-}
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd <project-directory>
+   npm install
+   npm start
+   npm test
+   npm run build
+   Please replace the conflicting sections in the pull request with the content from the main branch.
+   
