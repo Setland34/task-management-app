@@ -1,18 +1,27 @@
 # Task Management Application
 
-This is a web-based task management application where users can create, update, and delete tasks. The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks. Additional features include task prioritization, due dates, and notifications to enhance the user experience.
+This is a web-based task management application where users can create, update, and delete tasks. The application includes user authentication and authorization.
 
 ## Setup Instructions
 
 1. Clone the repository:
-   ```
-   git clone <repository-url>
-   ```
-
 2. Navigate to the project directory:
-   ```
-   cd <project-directory>
-   ```
+3. Install the required dependencies:
+install
+4. Start the development server:
+5. Open your browser and navigate to `http://localhost:3000` to view the application.
+
+## Running Tests
+
+To run tests, use the following command:
+## Building for Production
+
+To create a production build, use the following command:
+This will create a `build` directory with the production-ready files.
+
+## Deployment
+
+To deploy the application, follow the instructions provided by your hosting provider. Ensure that you have set up the necessary environment variables for the application to function correctly.
 
 ## User Authentication and Authorization
 
@@ -22,36 +31,34 @@ The application includes user authentication and authorization to ensure that on
    - Navigate to the registration page.
    - Fill in the required information (username and password).
    - Submit the registration form.
-
 2. Log in with an existing user:
    - Navigate to the login page.
    - Enter your username and password.
    - Submit the login form.
-
 3. Log out:
    - Click the logout button to log out of the application.
-
 4. User permissions:
    - Only authenticated users can create, update, and delete tasks.
    - Ensure that you are logged in to access and modify tasks.
 
-## Setting Environment Variables
+## Interactive Rebase with `git rebase -i HEAD~<number_of_commits>`
+The `git rebase -i HEAD~<number_of_commits>` command is used to interactively rebase the last `<number_of_commits>` commits.
 
-To set the required environment variables, use the following code snippet:
+## Configuring Git to Sign All Commits with a GPG Key
+To configure Git to sign all commits with a GPG key by default, use the following command:
+# Task Management Application
 
-```python
-import getpass
-import os
+This is a web-based task management application where users can create, update, and delete tasks. The application includes user authentication and authorization to ensure that only authorized users can access and modify tasks.
 
-for env_var in [
-    "CDP_API_KEY_NAME",
-    "CDP_API_KEY_PRIVATE_KEY",
-]:
-    if not os.getenv(env_var):
-        os.environ[env_var] = getpass.getpass(f"Enter your {env_var}: ")
+## Setup Instructions
 
-# Optional: Set network (defaults to base-sepolia)
-os.environ["NETWORK_ID"] = "base-sepolia"  # or "base-mainnet"
-```
-
-This code will prompt you to enter the values for the required environment variables if they are not already set. You can also set the `NETWORK_ID` environment variable to specify the network to use (default is `base-sepolia`).
+1. Clone the repository:
+   ```sh
+   git clone <repository-url>
+   cd <project-directory>
+   npm install
+   npm start
+   npm test
+   npm run build
+   Please replace the conflicting sections in the pull request with the content from the main branch.
+   
