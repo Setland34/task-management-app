@@ -1,11 +1,27 @@
-[licenses]
-accepted = ["MIT", "MSC", "BSD"]
+{
+  // The name of the project
+  "projectName": "Task Management Application",
 
-[dependencies]
-ignored = ["ignored_dep1", "ignored_dep2"]
-ignore_dev_dependencies = true
-ignore_optional_dependencies = true
+  // A brief description of the project
+  "description": "A web-based task management application with user authentication and task prioritization features.",
 
-[behavior]
-run_only_on_dependency_modification = true
-do_not_block_pr = false
+  // The current version of the project
+  "version": "1.0.0",
+
+  // The URL to the full text of the license
+  "licenseUrl": "https://opensource.org/licenses/MIT",
+
+  // A list of contributors to the project
+  "contributors": [
+    "Setland34"
+  ],
+
+  // The license type for the project
+  "license": "MIT",
+
+  // The author of the project
+  "author": "Setland34",
+
+  // The repository URL for the project
+  "repository": "https://github.com/Setland34/task-management-app"
+}
