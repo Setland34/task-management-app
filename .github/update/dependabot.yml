@@ -1,0 +1,27 @@
+version: 2
+updates:
+  # Update npm packages
+  - package-ecosystem: "npm"
+    directory: "/" # Location of package.json
+    schedule:
+      interval: "weekly"
+    assignees:
+      - your-github-username
+    labels:
+      - dependencies
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name
+
+  # Update GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/" # Location of the workflows
+    schedule:
+      interval: "weekly"
+    assignees:
+      - your-github-username
+    labels:
+      - dependencies
+    open-pull-requests-limit: 5
+    ignore:
+      - action-name
